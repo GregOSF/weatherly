@@ -1,3 +1,24 @@
 body {
 	font-family: 'Bitter', serif;
 }
+
+#todayDiv {
+	height: 420px;
+	background-color: #F8E71C;
+}
+
+#todayTemp {
+	font-size: 180px;
+	color: #ffffff;
+
+}
+
+#today {
+	font-size: 15px;
+	color: #ffffff;
+}
+
+#cityName {
+	font-size: 35px;
+	color: #ffffff;
+}
