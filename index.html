@@ -44,8 +44,10 @@
 				<hr>
 
 				<div ng-show="cities.length > 0">
-					<h4 class="text-center"> Forecast For <span> <strong> {{city.city.name}} on {{city.list[0].main.dt}} </strong> </span> </h4>
+					<h4 class="text-center"> Forecast For <span> <strong> {{city.city.name}} </strong> </span> </h4>
 					<hr>
+					<p class="text-center"> {{city.list[0].main.temp}} </p>
+
 
 				</div>
 			</div>

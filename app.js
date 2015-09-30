@@ -25,12 +25,26 @@ angular.module('weatherly', [])
 				} else if (hh == 0) {
 					h = 12;
 				}
+				var gsDayNames = new Array(
+				  'Sunday',
+				  'Monday',
+				  'Tuesday',
+				  'Wednesday',
+				  'Thursday',
+				  'Friday',
+				  'Saturday'
+				);
+
 				
+				var dayName = gsDayNames[d.getDay()];
+				console.log(dayName)
 				// ie: 2013-02-18, 8:35 AM	
-				time = yyyy + '-' + mm + '-' + dd + ', ' + h + ':' + min + ' ' + ampm;
+				time = yyyy + '-' + mm + '-' + dayName + ', ' + h + ':' + min + ' ' + ampm;
 					
-				return time;
+				return dayName;
 			};
+			
+
 
 			
 			$scope.searchCity = function () {
@@ -49,8 +63,16 @@ angular.module('weatherly', [])
 						console.log(cityId);
 						$scope.cities.push(response.data.city.name);
 						console.log($scope.cities.length)
+
 						var datetime = $scope.city.list[0].dt;
-						console.log(unixTime(datetime))
+						console.log(unixTime(datetime));
+						var temp = $scope.city.list[0].main.temp;
+						console.log(temp);
+						for (i = 0; i < 5; i++) { 
+									var temps = $scope.city.list[i].main.temp;
+							    console.log(temps);
+						};
+
 
 
 
@@ -61,5 +83,6 @@ angular.module('weatherly', [])
 			}
 
 	}]);
+
 
 
