@@ -9,6 +9,8 @@
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
+	<!-- moment.js -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js'></script>
 	<!-- Scripts -->
 	<script type="text/javascript" src="app.js"></script>
 
@@ -28,30 +30,40 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container" ng-Controller="WeatherCtrl" ng-view>
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2" ng-Controller="WeatherCtrl" ng-view>
+			<div class="col-md-12">
 				<h1 class="text-center"> Weatherly </h1>		
-				<hr>
 				
-				<h3 class="text-center">Search by City</h3>
+				
+				
 				<form ng-submit="searchCity()" class="form-inline text-center">
 				  <div class="form-group">
-				    <input type="text" ng-model="cityName" class="form-control" placeholder="Enter City" autofocus=true>
+				    <input type="text" ng-model="cityName" class="form-control" placeholder="Search by City" autofocus=true>
 				  </div>
 				  <input type="submit" value="Search" class="btn btn-primary">
 				</form>
 				<hr>
-
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
 				<div ng-show="cities.length > 0">
-					<h4 class="text-center"> Forecast For <span> <strong> {{city.city.name}} </strong> </span> </h4>
-					<hr>
-					<p class="text-center"> {{city.list[0].main.temp}} </p>
+					<div id='todayDiv'>
+						<h4 class="text-center" id="today"> Today </h4>
+						<h1 class="text-center" id="cityName"> <strong> {{city.city.name}} </strong> </h1>
+						<p class="text-center"> <img ng-src="{{image}}" /> </p>
+						<p class="text-center" id="todayTemp"> {{todayTemp}}º </p>
+					</div>
 
 
+					<div>
+						<img ng-src="{{image}}" />
+					</div>
 				</div>
 			</div>
-			</div>	
+		</div>
+				
 	</div>
 
 
